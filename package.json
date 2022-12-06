@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsc --watch",
     "build": "tsc",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,12 @@
   },
   "homepage": "https://github.com/fdahlstrand/drawio-generator#readme",
   "devDependencies": {
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
     "prettier": "2.8.0",
     "typescript": "^4.9.3"
+  },
+  "lint-staged": {
+    "*": "prettier --ignore-unknown --write"
   }
 }
