@@ -18,6 +18,7 @@
   "keywords": [],
   "author": "Fredrik Dahlstrand",
   "license": "ISC",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/fdahlstrand/drawio-generator/issues"
   },
