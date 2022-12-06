@@ -1,0 +1,20 @@
+{
+  "name": "drawio-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fdahlstrand/drawio-generator.git"
+  },
+  "keywords": [],
+  "author": "Fredrik Dahlstrand",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fdahlstrand/drawio-generator/issues"
+  },
+  "homepage": "https://github.com/fdahlstrand/drawio-generator#readme"
+}
