@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/fdahlstrand/drawio-generator/issues"
   },
-  "homepage": "https://github.com/fdahlstrand/drawio-generator#readme"
+  "homepage": "https://github.com/fdahlstrand/drawio-generator#readme",
+  "devDependencies": {
+    "typescript": "^4.9.3"
+  }
 }
