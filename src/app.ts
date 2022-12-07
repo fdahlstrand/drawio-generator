@@ -1,4 +1,3 @@
-import { Builder } from "xml2js";
 import { writeFileSync } from "node:fs";
 
 interface BoxLayout {
@@ -122,11 +121,4 @@ const obj = {
   },
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-const builder = new Builder({ xmldec: undefined });
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-const xml = builder.buildObject(obj);
-
-console.log(xml);
-// eslint-disable-next-line @typescript-eslint/no-unsafe-call
-writeFileSync("./.work/out.drawio", xml, "utf-8");
+writeFileSync("./.work/test.txt", "hello", "utf-8");
