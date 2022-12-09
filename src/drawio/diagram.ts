@@ -1,0 +1,29 @@
+import { Rectangle } from "./rectangle";
+import { Diagram as XmlDiagram } from "./xml";
+
+export class Diagram {
+  public id: string;
+  public name: string;
+  public objects: Rectangle[] = [];
+
+  constructor(id: string, { name = "Page-1" }: { name?: string }) {
+    this.id = id;
+    this.name = name;
+  }
+
+  toDto(): XmlDiagram {
+    return {
+      $id: this.id,
+      $name: this.name,
+      mxGraphModel: {
+        root: {
+          mxCell: [
+            { $id: "0" },
+            { $id: "1", $parent: "0" },
+            ...this.objects.map((o) => o.toDto()),
+          ],
+        },
+      },
+    };
+  }
+}
