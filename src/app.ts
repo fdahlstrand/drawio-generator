@@ -2,7 +2,7 @@ import { writeFileSync } from "node:fs";
 import { XMLBuilder } from "fast-xml-parser";
 import * as DrawIO from "./drawio";
 
-const obj: DrawIO.File = {
+const obj: DrawIO.XML.File = {
   mxfile: {
     $compressed: false,
     $modified: new Date().toISOString(),
