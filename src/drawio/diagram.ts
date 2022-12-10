@@ -1,4 +1,4 @@
-import { Shape } from "./rectangle";
+import { Shape } from "./shape";
 import { Diagram as XmlDiagram } from "./xml";
 
 export class Diagram {

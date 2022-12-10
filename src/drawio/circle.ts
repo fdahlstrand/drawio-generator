@@ -1,14 +1,14 @@
 import { Shape, ShapeInitializer } from "./shape";
 import { MxCell } from "./xml";
 
-export class Rectangle extends Shape {
+export class Circle extends Shape {
   constructor(
     id: string,
     {
       x = 0,
       y = 0,
-      width = 240,
-      height = 120,
+      width = 80,
+      height = 80,
       label = "",
       parent = "1",
     }: ShapeInitializer
@@ -28,7 +28,7 @@ export class Rectangle extends Shape {
       ":@": {
         id: this.id,
         value: this.label,
-        style: "rounded=0;whiteSpace=wrap;html=1;",
+        style: "ellipse;whiteSpace=wrap;html=1;aspect=fixed;",
         vertex: "1",
         parent: this.parent,
       },
