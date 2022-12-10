@@ -38,18 +38,25 @@ export class Rectangle {
 
   toDto(): MxCell {
     return {
-      $id: this.id,
-      $value: this.label,
-      $style: "rounded=0;whiteSpace=wrap;html=1;",
-      $vertex: "1",
-      $parent: this.parent,
-      mxGeometry: {
-        $x: this.x,
-        $y: this.y,
-        $width: this.width,
-        $height: this.height,
-        $as: "geometry",
+      ":@": {
+        id: this.id,
+        value: this.label,
+        style: "rounded=0;whiteSpace=wrap;html=1;",
+        vertex: "1",
+        parent: this.parent,
       },
+      mxCell: [
+        {
+          ":@": {
+            x: this.x,
+            y: this.y,
+            width: this.width,
+            height: this.height,
+            as: "geometry",
+          },
+          mxGeometry: [],
+        },
+      ],
     };
   }
 }

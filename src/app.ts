@@ -1,5 +1,5 @@
-import { writeFileSync } from "node:fs";
-import { XMLBuilder } from "fast-xml-parser";
+import { writeFileSync, readFileSync } from "node:fs";
+import { XMLBuilder, XMLParser } from "fast-xml-parser";
 import * as DrawIO from "./drawio";
 
 const file = new DrawIO.File({});
@@ -19,9 +19,26 @@ file.diagrams[0].objects = [
 
 const builder = new XMLBuilder({
   ignoreAttributes: false,
-  attributeNamePrefix: "$",
+  preserveOrder: true,
+  attributeNamePrefix: "",
+  suppressEmptyNode: true,
   format: true,
 });
 
 const xml = builder.build(file.toDto()) as string;
-writeFileSync("./.work/out.drawio", xml, "utf-8");
+writeFileSync("./.work/out.drawio", xml.trim(), "utf-8");
+
+const input = readFileSync("./.work/test.drawio", "utf-8");
+
+interface x {
+  $host: string;
+}
+
+const parsed = new XMLParser({
+  ignoreAttributes: false,
+  preserveOrder: true,
+  attributeNamePrefix: "",
+}).parse(input) as x;
+
+console.log(input);
+console.log(parsed);

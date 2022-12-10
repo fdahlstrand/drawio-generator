@@ -13,17 +13,23 @@ export class Diagram {
 
   toDto(): XmlDiagram {
     return {
-      $id: this.id,
-      $name: this.name,
-      mxGraphModel: {
-        root: {
-          mxCell: [
-            { $id: "0" },
-            { $id: "1", $parent: "0" },
-            ...this.objects.map((o) => o.toDto()),
+      ":@": {
+        id: this.id,
+        name: this.name,
+      },
+      diagram: [
+        {
+          mxGraphModel: [
+            {
+              root: [
+                { ":@": { id: "0" }, mxCell: [] },
+                { ":@": { id: "1", parent: "0" }, mxCell: [] },
+                ...this.objects.map((o) => o.toDto()),
+              ],
+            },
           ],
         },
-      },
+      ],
     };
   }
 }
