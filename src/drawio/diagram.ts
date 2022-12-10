@@ -1,10 +1,10 @@
-import { Rectangle } from "./rectangle";
+import { Shape } from "./rectangle";
 import { Diagram as XmlDiagram } from "./xml";
 
 export class Diagram {
   public id: string;
   public name: string;
-  public objects: Rectangle[] = [];
+  public objects: Shape[] = [];
 
   constructor(id: string, { name = "Page-1" }: { name?: string }) {
     this.id = id;

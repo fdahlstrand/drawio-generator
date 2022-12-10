@@ -1,6 +1,10 @@
 import { MxCell } from "./xml";
 
-export class Rectangle {
+export abstract class Shape {
+  abstract toDto(): MxCell;
+}
+
+export class Rectangle extends Shape {
   public label: string;
   public parent: string;
   public id: string;
@@ -27,6 +31,7 @@ export class Rectangle {
       parent?: string;
     }
   ) {
+    super();
     this.id = id;
     this.x = x;
     this.y = y;
