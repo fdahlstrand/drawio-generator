@@ -2,6 +2,7 @@ import { Shape, Style } from "./shape";
 
 export class ShapeBuilder {
   private shape: Shape;
+  public _type = "ShapeBuilder";
 
   constructor(id: string, style: Style) {
     this.shape = { id, style };

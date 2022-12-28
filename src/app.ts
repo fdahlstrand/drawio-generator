@@ -6,17 +6,15 @@ import { MxFile } from "./drawio/xml";
 const file = new DrawIO.File({});
 file.diagrams = [new DrawIO.Diagram("Diagram-1", { name: "Page-1" })];
 file.diagrams[0].objects = [
-  DrawIO.rectangle("Box-1").at(100, 100).withLabel("<b>Hello</b>").create(),
+  DrawIO.rectangle("Box-1").at(100, 100).withLabel("<b>Hello</b>"),
   DrawIO.circle("Round")
     .at(140, 200)
     .withSize(160, 160)
-    .withLabel("<i>Round</i>")
-    .create(),
+    .withLabel("<i>Round</i>"),
   DrawIO.rectangle("Box-2")
     .at(100, 300)
     .withLabel("<b>World</b>")
-    .withStyle({ rounded: 1 })
-    .create(),
+    .withStyle({ rounded: 1 }),
 ];
 
 const builder = new XMLBuilder({

@@ -1,3 +1,4 @@
+import { ShapeBuilder } from "./shape-builder";
 import { MxCell } from "./xml";
 
 export interface Style {
@@ -18,7 +19,17 @@ export interface Shape {
   style: Style;
 }
 
-export function toDto(s: Shape): MxCell {
+export function toDto(src: Shape | ShapeBuilder): MxCell {
+  const isShapeBuilder = (s: Shape | ShapeBuilder): s is ShapeBuilder =>
+    ((s as ShapeBuilder)._type ?? "") === "ShapeBuilder";
+
+  let s: Shape;
+  if (isShapeBuilder(src)) {
+    s = src.create();
+  } else {
+    s = src;
+  }
+
   const stl = Object.keys(s.style)
     .map((key) => key as keyof typeof s.style)
     .map((key) => {
