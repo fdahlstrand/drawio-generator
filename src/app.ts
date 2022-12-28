@@ -3,6 +3,70 @@ import { XMLBuilder, XMLParser } from "fast-xml-parser";
 import * as DrawIO from "./drawio";
 import { MxFile } from "./drawio/xml";
 
+type StyleEntry =
+  | ["ellipse"]
+  | ["whiteSpace", "wrap"]
+  | ["html", 0 | 1]
+  | ["aspect", "fixed"];
+
+type Style = StyleEntry[];
+
+const style: Style = [
+  ["ellipse"],
+  ["whiteSpace", "wrap"],
+  ["html", 1],
+  ["aspect", "fixed"],
+];
+
+interface Shape {
+  id: string;
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+  label?: string;
+}
+
+class ShapeBuilder {
+  private shape: Shape;
+
+  constructor(id: string) {
+    this.shape = { id };
+  }
+
+  public at(x: number, y: number): ShapeBuilder {
+    this.shape = { ...this.shape, x, y };
+
+    return this;
+  }
+
+  public withSize(width: number, height: number): ShapeBuilder {
+    this.shape = { ...this.shape, width, height };
+
+    return this;
+  }
+
+  public withWidth(width: number): ShapeBuilder {
+    this.shape = { ...this.shape, width };
+
+    return this;
+  }
+
+  public withHeight(height: number): ShapeBuilder {
+    this.shape = { ...this.shape, height };
+
+    return this;
+  }
+
+  public withLabel(label: string): ShapeBuilder {
+    this.shape = { ...this.shape, label };
+
+    return this;
+  }
+}
+
+new ShapeBuilder("Box-1").at(10, 10).withSize(80, 80).withLabel("<b>Hello</b>");
+
 const file = new DrawIO.File({});
 file.diagrams = [new DrawIO.Diagram("Diagram-1", { name: "Page-1" })];
 file.diagrams[0].objects = [
