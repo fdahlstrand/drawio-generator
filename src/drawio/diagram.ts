@@ -1,4 +1,4 @@
-import { Shape } from "./shape";
+import { Shape, toDto } from "./shape";
 import { Diagram as XmlDiagram } from "./xml";
 
 export class Diagram {
@@ -24,7 +24,7 @@ export class Diagram {
               root: [
                 { ":@": { id: "0" }, mxCell: [] },
                 { ":@": { id: "1", parent: "0" }, mxCell: [] },
-                ...this.objects.map((o) => o.toDto()),
+                ...this.objects.map(toDto),
               ],
             },
           ],
